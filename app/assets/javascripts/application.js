@@ -12,7 +12,7 @@ $(function() {
   $(document).on("turbolinks:load", function() {
     // lengthを呼び出すことで、#calendarが存在していた場合はtrueの処理がされ、無い場合はnillを返す
     if ($("#calendar").length) {
-      function eventCalendar() {
+      function shift_userCalendar() {
         return $("#calendar").fullCalendar({});
       }
       function clearCalendar() {
@@ -20,12 +20,12 @@ $(function() {
       }
 
       $(document).on("turbolinks:load", function() {
-        eventCalendar();
+        shift_userCalendar();
       });
       $(document).on("turbolinks:before-cache", clearCalendar);
 
       $("#calendar").fullCalendar({
-        events: "/events.json"
+        shift_users: "/shift_users.json"
       });
     }
   });
