@@ -3,7 +3,7 @@ class CreateShiftUsers < ActiveRecord::Migration[5.2]
     create_table :shift_users do |t|
       t.integer :user_id
       t.integer :shift_id
-      t.integer :work_type
+      t.integer :work_type, null: :false, limit: 1
 
       t.timestamps
     end

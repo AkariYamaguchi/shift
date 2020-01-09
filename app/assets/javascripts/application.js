@@ -4,7 +4,11 @@
 //= require fullcalendar/lang/ja
 
 $(document).ready(function() {
-  $("#calendar").fullCalendar({});
+  $("#calendar").fullCalendar({
+    dayClick: function() {
+      //alert('日付クリックイベント');
+    }
+  });
 });
 
 $(function() {

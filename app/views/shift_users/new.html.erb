@@ -1,9 +1,11 @@
 <h1>New Shift User</h1>
 
 <%= form_for(@shift_user) do |f| %>
-    <label><%=f.radio_button :work_type, '1', class: :rd %>午前</label>
-    <label><%=f.radio_button :work_type, '2', class: :rd %>午後</label>
-    <label><%=f.radio_button :work_type, '3', class: :rd %>一日</label>
+
+    <label><%=f.radio_button :work_type, :"午前", class: :rd %>午前</label>
+    <label><%=f.radio_button :work_type, :"午後", class: :rd %>午後</label>
+    <label><%=f.radio_button :work_type, :"一日", class: :rd %>1日</label>
+
     <%= f.submit '提出する' ,class:'submit'%>
 <% end %>
 
