@@ -5,6 +5,7 @@ class ShiftUsersController < ApplicationController
   # GET /shift_users.json
   def index
     @shift_users = ShiftUser.all
+
   end
 
   # GET /shift_users/1
