@@ -3,6 +3,14 @@
 //= require fullcalendar
 //= require fullcalendar/lang/ja
 
+$(document).ready(function() {
+  $("#calendar").fullCalendar({
+    dayClick: function() {
+      //alert('日付クリックイベント');
+    }
+  });
+});
+
 $(function() {
   // 画面遷移を検知
   $(document).on("turbolinks:load", function() {
