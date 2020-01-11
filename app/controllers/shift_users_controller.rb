@@ -15,7 +15,8 @@ class ShiftUsersController < ApplicationController
 
   # GET /shift_users/new
   def new
-    @shift_user = ShiftUser.new
+    @shift_user = current_user.shift_users.new
+    @shifts = Shift.where(business_day: '2020-02-01'..'2020-02-28')
   end
 
   # GET /shift_users/1/edit
@@ -25,8 +26,7 @@ class ShiftUsersController < ApplicationController
   # POST /shift_users
   # POST /shift_users.json
   def create
-    @shift_user = ShiftUser.new(shift_user_params)
-
+    @shift_user = current_user.shift_users.new(shift_user_params)
     respond_to do |format|
       if @shift_user.save
         format.html { redirect_to @shift_user, notice: 'Shift user was successfully created.' }
