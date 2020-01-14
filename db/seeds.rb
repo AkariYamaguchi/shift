@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+29.times do |i|
+    Shift.find_or_create_by(id:"#{i+1}",business_day:"2020-02-#{i+1}")
+end

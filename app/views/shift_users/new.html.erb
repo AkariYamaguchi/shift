@@ -1,14 +1,21 @@
 <h1>シフト提出</h1>
 
-<%= form_for(@shift_user) do |f| %>
-
-    <label><%=f.radio_button :work_type, :"午前", class: :rd %>午前</label>
-    <label><%=f.radio_button :work_type, :"午後", class: :rd %>午後</label>
-    <label><%=f.radio_button :work_type, :"一日", class: :rd %>1日</label>
-
-    <%= f.submit '提出する' ,class:'submit'%>
-<% end %>
 
 
+
+<!--form_tag var-->
+<%= form_tag("/shift_users/", method: "post") do%>
+    <% @shifts.each do |shift|%>
+
+        <%= fields_for @shift_user do |fs| %>
+            <%= shift.business_day%>
+            <label><%=fs.radio_button :work_type, :am, class: :rd %>午前</label>
+            <label><%=fs.radio_button :work_type, :pm, class: :rd %>午後</label>
+            <label><%=fs.radio_button :work_type, :all_day, class: :rd %>1日</label>
+            <br/>
+        <% end%>
+    <%end%>
+    <%= submit_tag %>
+<%end%>
 
 <%= link_to 'Back', shift_users_path %>
