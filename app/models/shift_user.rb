@@ -15,4 +15,6 @@ class ShiftUser < ApplicationRecord
   def display_work_type
     WORK_TYPE[work_type.try(:to_sym)]
   end
+
+
 end

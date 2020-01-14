@@ -16,6 +16,7 @@ class ShiftUsersController < ApplicationController
   # GET /shift_users/new
   def new
     @shift_user = current_user.shift_users.new
+
     @shifts = Shift.where(business_day: '2020-02-01'..'2020-02-28')
   end
 
