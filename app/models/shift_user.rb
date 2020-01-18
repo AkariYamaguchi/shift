@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ShiftUser < ApplicationRecord
+  belongs_to :shift
+
   enum work_type: {
     holiday: 0,
     am: 1,
