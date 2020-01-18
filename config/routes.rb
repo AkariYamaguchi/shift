@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
     get "users" => "user#index"
     get "users/show" => "user#show"
-    post "users/:id/update" =>"user#show"
+    get "users/:id/edit" => "user#edit"
+    post "users/:id/update" =>"user#edit"
 
   root 'home#top'
 
