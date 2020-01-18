@@ -1,13 +1,8 @@
 <h1>シフト提出</h1>
-
-
-
-
 <!--form_tag var-->
 <%= form_tag("/shift_users/", method: "post") do%>
     <% @shifts.each do |shift|%>
-
-        <%= fields_for @shift_user do |fs| %>
+        <%= fields_for shift.shift_users.new, index: shift.id do |fs| %>
             <%= shift.business_day%>
             <label><%=fs.radio_button :work_type, :am, class: :rd %>午前</label>
             <label><%=fs.radio_button :work_type, :pm, class: :rd %>午後</label>
@@ -17,5 +12,4 @@
     <%end%>
     <%= submit_tag %>
 <%end%>
-
 <%= link_to 'Back', shift_users_path %>
