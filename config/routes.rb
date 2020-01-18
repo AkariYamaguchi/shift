@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :events
   devise_for :users
     get "users" => "user#index"
-    get "users/:id" => "user#show"
-    post "users/:id/update" =>"user#edit"
+    get "users/show" => "user#show"
+    post "users/:id/update" =>"user#show"
 
   root 'home#top'
 
