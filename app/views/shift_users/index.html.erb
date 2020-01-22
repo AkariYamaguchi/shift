@@ -28,7 +28,21 @@
   </tbody>
 </table>
 
+
 <br>
 
+
+<%= month_calendar(attribute: :display_work_type) do |date| %>
+  <%= date %>
+<% end %>
 <%= link_to 'New Shift User', new_shift_user_path %>
-<div id="calendar"></div>
+
+<%= month_calendar events: @shift_users do |date, shift_users| %>
+  <%= date %>
+
+  <% shift_users.each do |shift_user| %>
+    <div>
+      <%= shift_user.id %>
+    </div>
+  <% end %>
+<% end %>

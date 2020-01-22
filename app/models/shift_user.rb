@@ -17,4 +17,5 @@ class ShiftUser < ApplicationRecord
   end
 
 
+
 end
