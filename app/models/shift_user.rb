@@ -3,6 +3,9 @@
 class ShiftUser < ApplicationRecord
   belongs_to :shift
 
+  belongs_to :user
+
+
   enum work_type: {
     holiday: 0,
     am: 1,
@@ -21,5 +24,8 @@ class ShiftUser < ApplicationRecord
     WORK_TYPE[work_type.try(:to_sym)]
   end
 
+  def start_time
+    shift.business_day
+  end
 
 end

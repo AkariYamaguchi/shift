@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'home#top'
   resources :shift_users
   resources :events
+
   #registrations_controller.rbを使える設定
   devise_for :users, controllers: { registrations: 'users/registrations' }
 

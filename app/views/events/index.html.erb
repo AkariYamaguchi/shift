@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
-<div id="calendar"></div>
+
 <table>
   <thead>
     <tr>
@@ -29,5 +29,14 @@
 </table>
 
 <br>
+<%= month_calendar events: @events do |date, events| %>
+  <%= date %>
+
+  <% events.each do |event| %>
+    <div>
+      <%= event.title %>
+    </div>
+  <% end %>
+<% end %>
 
 <%= link_to 'New Event', new_event_path %>
