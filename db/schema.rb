@@ -27,13 +27,12 @@ ActiveRecord::Schema.define(version: 2020_01_20_053617) do
   create_table "shift_users", force: :cascade do |t|
     t.integer "user_id"
     t.integer "shift_id"
-    t.integer "work_type"
+    t.integer "work_type", limit: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "shifts", force: :cascade do |t|
-    t.integer "shift_id"
     t.date "business_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
