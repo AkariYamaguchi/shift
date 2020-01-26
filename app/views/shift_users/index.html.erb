@@ -17,7 +17,7 @@
 
       <tr>
 
-        <td><%= shift_user.id %></td>
+        <td><%= shift_user.shift.business_day.strftime("%m/%d") %></td>
         <td><%= shift_user.display_work_type %></td>
         <td><%= link_to 'Show', shift_user %></td>
         <td><%= link_to 'Edit', edit_shift_user_path(shift_user) %></td>
