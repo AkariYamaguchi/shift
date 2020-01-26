@@ -1,26 +1,22 @@
 # shiftfree
-シフト管理アプリ
+シフト管理アプリ。どこにいてもスマホやパソコンかららくらくシフト提出可能。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# 機能
+- ユーザー登録
+- ユーザー編集
+- シフト提出
+- 他の人のシフト提出状況が分かる。
 
-* Ruby version
+# 使用方法
+- アカウント作成
 
-* System dependencies
+## シフト提出
+- ログイン後に表示されるカレンダーの下に翌月のシフト提出ボタンを押す。
+- 出勤できる日時と出勤タイプ（午前、午後、一日）を選択する。
+- 下にスクロールすると、提出ボタンをあるので、そちらを押す。
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 作者
+[@akaruimiraixox](https://twitter.com/akaruimiraixox)
+mail to: akr03xxx@gmail.com
 
