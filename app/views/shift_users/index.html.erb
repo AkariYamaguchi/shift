@@ -32,9 +32,6 @@
 <br>
 
 
-<%= month_calendar(attribute: :display_work_type) do |date| %>
-  <%= date %>
-<% end %>
 <%= link_to 'New Shift User', new_shift_user_path %>
 
 <%= month_calendar events: @shift_users do |date, shift_users| %>
@@ -42,7 +39,7 @@
 
   <% shift_users.each do |shift_user| %>
     <div>
-      <%= shift_user.id %>
+      <%= "#{shift_user.user.name} (#{shift_user.display_work_type})" %>
     </div>
   <% end %>
 <% end %>
