@@ -2,11 +2,14 @@
 <!--form_tag var-->
 <%= form_tag("/shift_users/", method: "post") do%>
     <% @shifts.each do |shift|%>
-        <%= fields_for shift.shift_users.new, index: shift.id do |fs| %>
+        <%= fields_for "shift_users[]", shift.shift_users.new do |fs| %>
+            <%= fs.hidden_field :shift_id, value: shift.id %>
             <%= shift.business_day%>
-            <label><%=fs.radio_button :work_type, :am, class: :rd %>午前</label>
-            <label><%=fs.radio_button :work_type, :pm, class: :rd %>午後</label>
-            <label><%=fs.radio_button :work_type, :all_day, class: :rd %>1日</label>
+            <%= fs.select(:work_type) do %>
+              <% ShiftUser::WORK_TYPE.invert.to_a.each do |c| -%>
+                <%= content_tag(:option, c.first, value: c.last) %>
+              <% end %>
+            <% end %>
             <br/>
         <% end%>
     <%end%>

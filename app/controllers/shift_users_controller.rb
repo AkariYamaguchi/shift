@@ -27,16 +27,12 @@ class ShiftUsersController < ApplicationController
   # POST /shift_users
   # POST /shift_users.json
   def create
-    @shift_user = current_user.shift_users.new(shift_user_params)
-    respond_to do |format|
-      if @shift_user.save
-        format.html { redirect_to @shift_user, notice: 'Shift user was successfully created.' }
-        format.json { render :show, status: :created, location: @shift_user }
-      else
-        format.html { render :new }
-        format.json { render json: @shift_user.errors, status: :unprocessable_entity }
-      end
+    shift_users_params.each do |shift_user_param|
+      shift_user = current_user.shift_users.find_or_initialize_by(shift_id: shift_user_param[:shift_id])
+      shift_user.work_type = shift_user_param[:work_type]
+      shift_user.save
     end
+    redirect_to shift_users_path
   end
 
   # PATCH/PUT /shift_users/1
@@ -72,5 +68,9 @@ class ShiftUsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def shift_user_params
       params.require(:shift_user).permit(:user_id, :shift_id, :work_type)
+    end
+
+    def shift_users_params
+      params.permit(shift_users: [:shift_id, :work_type])[:shift_users]
     end
 end
