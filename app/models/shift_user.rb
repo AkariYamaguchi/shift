@@ -2,7 +2,9 @@
 
 class ShiftUser < ApplicationRecord
   belongs_to :shift
+
   belongs_to :user
+
 
   enum work_type: {
     holiday: 0,
