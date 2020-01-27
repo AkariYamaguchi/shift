@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 5.0'
 #materialize
 gem 'materialize-sass', '~> 1.0.0'
 gem 'material_icons'
+gem 'execjs'
 #simple calendar
 gem "simple_calendar", "~> 2.0"
 # Use Uglifier as compressor for JavaScript assets
