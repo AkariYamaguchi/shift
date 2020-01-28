@@ -26,9 +26,9 @@
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
-    background-color: rgba(0, 153, 255, 0.1);
-    border: 1px solid rgb(221, 221, 221);
-    border-radius: 15px;
+    background-color: white;
+    border: 1px solid #ffffff;
+
     border-collapse: collapse;
     box-sizing: border-box;
     max-width: 100%;
@@ -40,48 +40,57 @@
   }
 
   th {
-    padding: 6px;
-    border-bottom: 2px solid rgb(221, 221, 221);
+    padding: 10px;
+    border-bottom: 4px solid rgba(52, 209, 182, 0.5);
     border-collapse: collapse;
-    border-left: 1px solid rgb(221, 221, 221);
-    border-right: 1px solid rgb(221, 221, 221);
-    border-top: 0px none rgb(51, 51, 51);
-    box-sizing: border-box;
-    text-align: left;
+    border-right-color: #ffffff;
+    border-left-color: #ffffff;
+    text-align: center;
   }
 
   td {
     padding: 6px;
     vertical-align: top;
-    width: 14%;
+    width: 14.44%;
 
-    border: 1px solid #ddd;
-    border-top-color: rgb(221, 221, 221);
+    border: 1px solid #ffffff;
+    border-top-color: #ffffff;
     border-top-style: solid;
     border-top-width: 1px;
-    border-right-color: rgb(221, 221, 221);
+    border-right-color: #ffffff;
     border-right-style: solid;
     border-right-width: 1px;
-    border-bottom-color: rgb(221, 221, 221);
+    border-bottom-color: rgba(220, 220, 220, 0.6);
     border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-left-color: rgb(221, 221, 221);
+    border-bottom-width: 2.5px;
+    border-left-color: #ffffff;
     border-left-style: solid;
     border-left-width: 1px;
   }
 
   .day {
-    height: 80px;
+    height: 180px;
+  }
+
+  .wday-0 {
+    background-color: rgba(255, 0, 0, 0.2);
+  }
+  .wday-6 {
+    background-color: rgba(30, 144, 255, 0.2);
   }
 
   .today {
-    background: #ffffc0;
+    background: rgba(52, 209, 182, 0.4);
   }
 
   .prev-month {
-    background: #ddd;
+    background: #ffffff;
   }
   .next-month {
-    background: #ddd;
+    background: #ffffff;
   }
+}
+
+.weedend {
+  background-color: rgba(0, 153, 255, 0.5);
 }
