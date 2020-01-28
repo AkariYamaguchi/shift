@@ -23,6 +23,13 @@
   margin: 0 auto;
 }
 .simple-calendar {
+  .calendar-heading {
+    font-size: 30px;
+    span {
+      color: rgba(52, 209, 182, 0.8);
+    }
+  }
+
   table {
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
