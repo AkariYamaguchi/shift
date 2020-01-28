@@ -18,6 +18,10 @@ gem 'material_icons'
 gem 'execjs'
 #simple calendar
 gem "simple_calendar", "~> 2.0"
+
+#日本語対応gem
+gem 'rails-i18n', '~> 5.1'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
