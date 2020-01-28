@@ -9,8 +9,9 @@
 
         <div class='row'>
           <div class='col s12'>
+
             <%= month_calendar events: @shift_users do |date, shift_users| %>
-              <%= date %>
+              <%= date.strftime("%-d")%>
               <% shift_users.each do |shift_user| %>
             <div>
               <%= "#{shift_user.user.name} (#{shift_user.display_work_type})" %>
