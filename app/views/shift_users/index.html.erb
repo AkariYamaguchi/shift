@@ -1,13 +1,8 @@
 <p id="notice"><%= notice %></p>
-
-
 <body>
       <div class="container">
-
-
         <div class='row'>
           <div class='col s12'>
-
             <%= month_calendar events: @shift_users do |date, shift_users| %>
               <%= date.strftime("%-d")%>
               <% shift_users.each do |shift_user| %>
