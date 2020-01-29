@@ -1,7 +1,14 @@
 <h1>ユーザー一覧</h1>
-<% @users.each do |user|%>
-<p>ユーザーID</p>
-    <%= user.id%>
-<p>名前</p>
-    <%= user.name%>
-<% end %>
+
+<div class="row">
+    <% @users.each do |user|%>
+        <div class="col s12 m6">
+            <div class="card blue accent-2">
+                <div class="card-content white-text">
+                    <span class="card-title"><%= user.name%></>
+                    <p><%= user.profile%></p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+  </div>
