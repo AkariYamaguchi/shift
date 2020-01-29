@@ -12,16 +12,24 @@
   <body>
   <header>
         <nav>
+        <!--ロゴ-->
+          <% if user_signed_in? %>
+            <%= link_to 'Shiftfree', shift_users_path, class: "brand-logo" %>
+          <% else %>
+            <%= link_to 'Shiftfree', root, class: "brand-logo" %>
+          <% end %>
+          <!--サイド-->
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             <% if user_signed_in? %>
-                <%= link_to '自分プロフィール', users_show_path %>
-                <%= link_to '今月のシフト', shift_users_path %>
-                <%= link_to 'ユーザー一覧', users_path %>
-                <%= link_to 'プロフィール変更', edit_user_registration_path %>
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+                <li><%= link_to current_user.name + 'さん', users_show_path %></li>
+                <li><%= link_to 'シフト提出', new_shift_user_path %></li>
+                <li><%= link_to 'ユーザー一覧', users_path %>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>
                 <%= link_to 'サインアップ', new_user_registration_path %>
                 <%= link_to 'ログイン', new_user_session_path %>
             <% end %>
+          </ul>
         </nav>
     </header>
 
