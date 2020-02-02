@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-29.times do |i|
-    Shift.find_or_create_by(id:"#{i+1}",business_day:"2020-02-#{i+1}")
+('2020-02-01'.to_date..'2020-12-31'.to_date).each.with_index(1) do |date, i|
+    Shift.find_or_create_by(id: i, business_day: date)
 end
