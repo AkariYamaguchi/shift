@@ -15,9 +15,13 @@ class ShiftUsersController < ApplicationController
 
   # GET /shift_users/new
   def new
-    @shift_user = current_user.shift_users.new
+    year = params[:year] || Date.today.year
+    month = params[:month] || Date.today.month
+    @start_date = "#{year}-#{month}-1".to_date
+    @end_date = @start_date.end_of_month
 
-    @shifts = Shift.where(business_day: '2020-02-01'..'2020-02-28')
+    @shift_user = current_user.shift_users.new
+    @shifts = Shift.where(business_day: @start_date..@end_date)
   end
 
   # GET /shift_users/1/edit
