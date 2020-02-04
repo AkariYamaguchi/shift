@@ -5,7 +5,6 @@ class ShiftUser < ApplicationRecord
 
   belongs_to :user
 
-
   enum work_type: {
     holiday: 0,
     am: 1,
@@ -27,5 +26,4 @@ class ShiftUser < ApplicationRecord
   def start_time
     shift.business_day
   end
-
 end
