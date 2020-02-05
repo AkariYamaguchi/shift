@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>shiftfree</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -16,7 +16,7 @@
           <% if user_signed_in? %>
             <%= link_to 'Shiftfree', shift_users_path, class: "brand-logo" %>
           <% else %>
-            <%= link_to 'Shiftfree', root, class: "brand-logo" %>
+            <%= link_to 'Shiftfree', root_path, class: "brand-logo" %>
           <% end %>
           <!--サイド-->
           <ul id="nav-mobile" class="right hide-on-med-and-down">

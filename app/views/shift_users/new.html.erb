@@ -1,5 +1,8 @@
 <h1>シフト提出</h1>
-<!--form_tag var-->
+
+<%= link_to '前月', new_shift_user_path(year: (@start_date - 1.month).year, month: (@start_date - 1.month).month) %>
+<%= link_to '翌月', new_shift_user_path(year: (@start_date + 1.month).year, month: (@start_date + 1.month).month) %>
+
 <div class= 'row'>
 <%= form_tag("/shift_users/", method: "post") do%>
 <div class="input-field col s12">
