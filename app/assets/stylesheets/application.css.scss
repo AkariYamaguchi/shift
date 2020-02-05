@@ -12,7 +12,93 @@
  *
  *= require simple_calendar
  *= require_tree .
+ *= require material_icons
  *= require_self
  */
 
 @import "materialize";
+
+//shift_user index
+.body {
+  width: 100%;
+  margin: 0 auto;
+}
+.simple-calendar {
+  .calendar-heading {
+    font-size: 30px;
+    span {
+      color: rgba(52, 209, 182, 0.8);
+    }
+  }
+
+  table {
+    -webkit-border-horizontal-spacing: 0px;
+    -webkit-border-vertical-spacing: 0px;
+    background-color: white;
+    border: 1px solid #ffffff;
+
+    border-collapse: collapse;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  tr {
+    border-collapse: collapse;
+  }
+
+  th {
+    padding: 10px;
+    border-bottom: 4px solid rgba(52, 209, 182, 0.5);
+    border-collapse: collapse;
+    border-right-color: #ffffff;
+    border-left-color: #ffffff;
+    text-align: center;
+  }
+
+  td {
+    padding: 6px;
+    vertical-align: top;
+    width: 14.44%;
+
+    border: 1px solid #ffffff;
+    border-top-color: #ffffff;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: #ffffff;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgba(220, 220, 220, 0.6);
+    border-bottom-style: solid;
+    border-bottom-width: 2.5px;
+    border-left-color: #ffffff;
+    border-left-style: solid;
+    border-left-width: 1px;
+  }
+
+  .day {
+    height: 180px;
+  }
+
+  .wday-0 {
+    background-color: rgba(255, 0, 0, 0.2);
+  }
+  .wday-6 {
+    background-color: rgba(30, 144, 255, 0.2);
+  }
+
+  .today {
+    background: rgba(52, 209, 182, 0.4);
+  }
+
+  .prev-month {
+    background: #ffffff;
+  }
+  .next-month {
+    background: #ffffff;
+  }
+}
+
+.weedend {
+  background-color: rgba(0, 153, 255, 0.5);
+}

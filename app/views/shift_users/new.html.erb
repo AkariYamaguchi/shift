@@ -1,18 +1,27 @@
 <h1>シフト提出</h1>
+
 <!--form_tag var-->
+<%= link_to '前月', new_shift_user_path(year: (@start_date - 1.month).year, month: (@start_date - 1.month).month) %>
+<%= link_to '翌月', new_shift_user_path(year: (@start_date + 1.month).year, month: (@start_date + 1.month).month) %>
+<div class= 'row'>
 <%= form_tag("/shift_users/", method: "post") do%>
-    <% @shifts.each do |shift|%>
-        <%= fields_for "shift_users[]", shift.shift_users.new do |fs| %>
-            <%= fs.hidden_field :shift_id, value: shift.id %>
-            <%= shift.business_day%>
-            <%= fs.select(:work_type) do %>
-              <% ShiftUser::WORK_TYPE.invert.to_a.each do |c| -%>
-                <%= content_tag(:option, c.first, value: c.last) %>
-              <% end %>
-            <% end %>
-            <br/>
-        <% end%>
+<div class="input-field col s12">
+        <% @shifts.each do |shift|%>
+            <%= fields_for "shift_users[]", shift.shift_users.new do |fs| %>
+                <%= fs.hidden_field :shift_id, value: shift.id %>
+                <%= shift.business_day%>
+                <%= fs.select(:work_type) do %>
+                  <% ShiftUser::WORK_TYPE.invert.to_a.each do |c| -%>
+                    <%= content_tag(:option, c.first, value: c.last) %>
+                  <% end %>
+                <% end %>
+                <br/>
+            <% end%>
+        <%end%>
+        <%= submit_tag %>
     <%end%>
-    <%= submit_tag %>
-<%end%>
+  <label>Materialize Select</label>
+</div>
+
+</div>
 <%= link_to 'Back', shift_users_path %>
