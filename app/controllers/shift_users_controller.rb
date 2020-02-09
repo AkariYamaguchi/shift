@@ -1,17 +1,17 @@
+# frozen_string_literal: true
+
 class ShiftUsersController < ApplicationController
-  before_action :set_shift_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_shift_user, only: %i[show edit update destroy]
 
   # GET /shift_users
   # GET /shift_users.json
   def index
     @shift_users = ShiftUser.all
-
   end
 
   # GET /shift_users/1
   # GET /shift_users/1.json
-  def show
-  end
+  def show; end
 
   # GET /shift_users/new
   def new
@@ -25,8 +25,7 @@ class ShiftUsersController < ApplicationController
   end
 
   # GET /shift_users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /shift_users
   # POST /shift_users.json
@@ -64,17 +63,18 @@ class ShiftUsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_shift_user
-      @shift_user = ShiftUser.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def shift_user_params
-      params.require(:shift_user).permit(:user_id, :shift_id, :work_type)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_shift_user
+    @shift_user = ShiftUser.find(params[:id])
+  end
 
-    def shift_users_params
-      params.permit(shift_users: [:shift_id, :work_type])[:shift_users]
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def shift_user_params
+    params.require(:shift_user).permit(:user_id, :shift_id, :work_type)
+  end
+
+  def shift_users_params
+    params.permit(shift_users: %i[shift_id work_type])[:shift_users]
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserController < ApplicationController
   def index
     @users = User.all
@@ -15,13 +17,14 @@ class UserController < ApplicationController
     @user = current_user
     @user.assign_attributes(user_params)
     if @user.save(user_params)
-        redirect_to("/show")
+      redirect_to('/show')
     else
-        render("user/edit")
+      render('user/edit')
     end
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name)
   end
