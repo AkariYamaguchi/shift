@@ -10,7 +10,7 @@
             <%= fields_for "shift_users[]", shift.shift_users.new do |fs| %>
                 <%= fs.hidden_field :shift_id, value: shift.id %>
                 <%= shift.business_day%>
-                <%= fs.select(:work_type) do %>
+                <%= fs.select(:work_type, nil, {}, { class: 'browser-default' }) do %>
                   <% ShiftUser::WORK_TYPE.invert.to_a.each do |c| -%>
                     <%= content_tag(:option, c.first, value: c.last) %>
                   <% end %>
