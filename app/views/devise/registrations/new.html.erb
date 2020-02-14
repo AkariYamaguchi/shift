@@ -10,6 +10,13 @@
   </div>
 
   <div class="field">
+    <label>
+      <%= f.check_box :admin_flag, autofocus: true, checked_value: true,unchecked_value: false %>
+      <span>管理者</span>
+    </label>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
