@@ -9,6 +9,9 @@
             <div>
               <%= "#{shift_user.user.name} (#{shift_user.display_work_type})" %>
             </div>
+            <% if current_user.admin_flag == true %>
+                btnテスト
+            <% end %>
             <% end %>
           <% end %>
           </div>
