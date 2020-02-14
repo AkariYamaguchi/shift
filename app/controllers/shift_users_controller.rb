@@ -33,6 +33,7 @@ class ShiftUsersController < ApplicationController
     shift_users_params.each do |shift_user_param|
       shift_user = current_user.shift_users.find_or_initialize_by(shift_id: shift_user_param[:shift_id])
       shift_user.work_type = shift_user_param[:work_type]
+      shift_user.apply_status = 'applying'
       shift_user.save
     end
     redirect_to shift_users_path
