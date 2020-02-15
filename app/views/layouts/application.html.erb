@@ -26,16 +26,17 @@
                 <li><%= link_to 'ユーザー一覧', users_path %>
                 <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             <% else %>
-                <%= link_to 'サインアップ', new_user_registration_path %>
-                <%= link_to 'ログイン', new_user_session_path %>
+                <li><%= link_to 'アカウント登録', new_user_registration_path %></li>
+                <li><%= link_to 'ログイン', new_user_session_path %></li>
             <% end %>
           </ul>
         </nav>
     </header>
 
   <%# 新規登録やログイン時にメッセージ表示 %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
     <%= yield %>
   </body>
 </html>

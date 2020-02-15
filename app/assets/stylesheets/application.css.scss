@@ -18,6 +18,21 @@
 
 @import "materialize";
 
+//application
+//flash message
+.notice {
+  padding: 10px 0;
+  color: white;
+  background: rgb(251, 170, 88);
+  text-align: center;
+}
+
+.alert {
+  padding: 10px 0;
+  color: white;
+  background: rgb(251, 170, 88);
+  text-align: center;
+}
 //shift_user index
 .body {
   width: 100%;
