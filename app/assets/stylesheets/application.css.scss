@@ -18,6 +18,12 @@
 
 @import "materialize";
 
+//before login
+.wrap_login {
+  background-image: url(/bg.png);
+  background-size: cover;
+}
+
 //application
 //flash message
 .notice {
