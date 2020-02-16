@@ -21,6 +21,7 @@
           <!--サイド-->
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <% if user_signed_in? %>
+                <li><%= link_to (root_path) do %><i class="material-icons">date_range</i><% end %></li>
                 <li><%= link_to current_user.name + 'さん', users_show_path %></li>
                 <li><%= link_to 'シフト提出', new_shift_user_path %></li>
                 <li><%= link_to 'ユーザー一覧', users_path %>
