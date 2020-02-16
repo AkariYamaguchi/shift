@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  root 'home#top'
+  root 'shift_users#index'
   resources :shift_users
 
   #registrations_controller.rbを使える設定
