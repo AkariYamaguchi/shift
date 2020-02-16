@@ -1,14 +1,25 @@
-<h1>ユーザー一覧</h1>
-
-<div class="row">
+<body>
+  <div class="container">
+    <!--titile-->
+    <div class='row center'>
+      <div class='col s12'>
+        <h2>ユーザー一覧</h2>
+      </div>
+    </div>
+    <!--content-->
+    <div class="row">
     <% @users.each do |user|%>
-        <div class="col s12 m6">
-            <div class="card blue accent-2">
-                <div class="card-content white-text">
-                    <span class="card-title"><%= user.name%></>
-                    <p><%= user.profile%></p>
-                </div>
-            </div>
+    <div class="col s12 m12">
+      <div class="card light-blue accent-1">
+        <div class="card-content white-text">
+          <span class="card-title"><i class="medium material-icons center">account_box</i><%= user.name%></span>
+          <p><%= user.profile%></p>
         </div>
+      </div>
+    </div>
     <% end %>
   </div>
+
+
+  </div>
+</body>
