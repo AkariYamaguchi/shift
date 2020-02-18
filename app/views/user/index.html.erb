@@ -12,7 +12,12 @@
     <div class="col s12 m12">
       <div class="card light-blue accent-1">
         <div class="card-content white-text">
-          <span class="card-title"><i class="medium material-icons center">account_box</i><%= user.name%></span>
+          <% if user.image.attached? %>
+              <%= image_tag user.image, class:'img' %>
+            <% else %>
+              <%= image_tag '/def.png', class:'img'%>
+            <% end %>
+          <span class="card-title"><%= user.name%></span>
           <p><%= user.profile%></p>
         </div>
       </div>

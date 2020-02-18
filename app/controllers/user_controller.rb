@@ -10,11 +10,11 @@ class UserController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find_by(id: params[:id])
   end
 
   def update
-    @user = current_user
+    @user = User.find(params[:id])
     @user.assign_attributes(user_params)
     if @user.save(user_params)
       redirect_to('/show')
@@ -26,6 +26,6 @@ class UserController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :image)
   end
 end
