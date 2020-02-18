@@ -5,8 +5,10 @@
         <!--title-->
         <div class='row center'>
           <div class='col s12 '>
-            <% if current_user.image.attached? %>
-              <%= image_tag current_user.image, class:'img' %>
+            <% if @user.image.attached? %>
+              <%= image_tag @user.image, class:'img' %>
+            <% else %>
+              <% image_tag 'def.png', class:'img'%>
             <% end %>
           </div>
         </div>
