@@ -20,11 +20,15 @@
                     </tr>
                     <tr style='border-bottom:none',class='row'>
                         <th class='col s3'> <%= f.label :email %><br /></th>
-                        <td class='col s9'><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+                        <td class='col s9'><%= f.email_field :email, autocomplete: "email" %></td>
                     </tr>
                     <tr style='border-bottom:none',class='row'>
                         <th class='col s3'><%= f.label :profile %><br /><br /></th>
-                        <td class='col s9'><%= f.text_area :profile, autofocus: true %></td>
+                        <td class='col s9'><%= f.text_area :profile %></td>
+                    </tr>
+                    <tr style='border-bottom:none',class='row'>
+                        <th class='col s3'><%= f.label :image %><br /><br /></th>
+                        <td class='col s9'><%= f.file_field :image %></td>
                     </tr>
                   </table>
                 </div>

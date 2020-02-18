@@ -1,9 +1,13 @@
 <body>
+
+
       <div class="container">
         <!--title-->
         <div class='row center'>
           <div class='col s12 '>
-            <h2>プロフィール</h2>
+            <% if current_user.image.attached? %>
+              <%= image_tag current_user.image, class:'img' %>
+            <% end %>
           </div>
         </div>
         <!--card-->
