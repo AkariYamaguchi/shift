@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :shift_users
 
   #registrations_controller.rbを使える設定
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations',omniauth_callbacks: 'users/omniauth_callbacks' }
 
     get "users" => "user#index"
     get "users/show" => "user#show"
