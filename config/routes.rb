@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -5,12 +7,11 @@ Rails.application.routes.draw do
   root 'shift_users#index'
   resources :shift_users
 
-  #registrations_controller.rbを使える設定
-  devise_for :users, controllers: { registrations: 'users/registrations',omniauth_callbacks: 'users/omniauth_callbacks' }
+  # registrations_controller.rbを使える設定
+  devise_for :users, controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
 
-    get "users" => "user#index"
-    get "users/show" => "user#show"
-    get "users/:id/edit" => "user#edit"
-    post "users/:id/update" =>"user#edit"
-
+  get 'users' => 'user#index'
+  get 'users/show' => 'user#show'
+  get 'users/:id/edit' => 'user#edit'
+  post 'users/:id/update' => 'user#edit'
 end
