@@ -77,3 +77,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #facebook認証機能
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+#環境変数
+gem 'dotenv-rails'
