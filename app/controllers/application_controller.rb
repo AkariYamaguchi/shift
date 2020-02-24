@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
     # サインアップ時にnameのストロングパラメータを追加
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[name admin_flag])
     # アカウント編集の時にnameとprofileのストロングパラメータを追加
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[name profile])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[image name profile])
   end
 end
