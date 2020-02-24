@@ -1,25 +1,26 @@
-<body>
-  <div class="container">
-    <!--titile-->
-    <div class='row center'>
-      <div class='col s12'>
-        <h2>ユーザー一覧</h2>
+<div class="container">
+  <!--titile-->
+  <div class='row center'>
+    <div class='col s12'>
+      <h2>ユーザー一覧</h2>
+    </div>
+  </div>
+  <!--content-->
+  <div class="row">
+  <% @users.each do |user|%>
+  <div class="col s12 m12">
+    <div class="card light-blue accent-1">
+      <div class="card-content white-text">
+        <% if user.image.attached? %>
+            <%= image_tag user.image, class:'img' %>
+          <% else %>
+            <%= image_tag '/def.png', class:'img'%>
+          <% end %>
+        <span class="card-title"><%= user.name%></span>
+        <p><%= user.profile%></p>
       </div>
     </div>
-    <!--content-->
-    <div class="row">
-    <% @users.each do |user|%>
-    <div class="col s12 m12">
-      <div class="card light-blue accent-1">
-        <div class="card-content white-text">
-          <span class="card-title"><i class="medium material-icons center">account_box</i><%= user.name%></span>
-          <p><%= user.profile%></p>
-        </div>
-      </div>
-    </div>
-    <% end %>
   </div>
-
-
+  <% end %>
   </div>
-</body>
+</div>

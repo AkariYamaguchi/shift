@@ -18,6 +18,14 @@
 
 @import "materialize";
 
+//共通img
+.img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 20px 0 10px;
+  object-fit: cover;
+}
 //before login
 .wrap_login {
   background-image: url(/bg.png);
