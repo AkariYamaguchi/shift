@@ -42,15 +42,10 @@ class ShiftUsersController < ApplicationController
   # PATCH/PUT /shift_users/1
   # PATCH/PUT /shift_users/1.json
   def update
-    respond_to do |format|
-      if @shift_user.update(shift_user_params)
-        format.html { redirect_to @shift_user, notice: 'Shift user was successfully updated.' }
-        format.json { render :show, status: :ok, location: @shift_user }
-      else
-        format.html { render :edit }
-        format.json { render json: @shift_user.errors, status: :unprocessable_entity }
-      end
-    end
+    shift_user = ShiftUser.find(params[:id])
+    shift_user.status = params[:status]
+    shift_user.save!
+    redirect_to root_path
   end
 
   # DELETE /shift_users/1
