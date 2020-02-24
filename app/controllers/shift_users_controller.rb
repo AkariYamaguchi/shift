@@ -6,7 +6,7 @@ class ShiftUsersController < ApplicationController
   # GET /shift_users
   # GET /shift_users.json
   def index
-    @shift_users = ShiftUser.all
+    @shift_users = ShiftUser.where.not(work_type: 'holiday')
   end
 
   # GET /shift_users/1
@@ -33,7 +33,7 @@ class ShiftUsersController < ApplicationController
     shift_users_params.each do |shift_user_param|
       shift_user = current_user.shift_users.find_or_initialize_by(shift_id: shift_user_param[:shift_id])
       shift_user.work_type = shift_user_param[:work_type]
-      shift_user.apply_status = 'applying'
+      shift_user.status = 'applying'
       shift_user.save
     end
     redirect_to shift_users_path
