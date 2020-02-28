@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @comments = Comment.all.order(created_at: :desc)
   end
 
   # GET /comments/1
@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    @user = User.find(params[:id])
   end
 
   # GET /comments/1/edit
@@ -24,17 +25,12 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = Comment.new(comment_params)
-
-    respond_to do |format|
+    @comment = Comment.create params.require(:comment).permit(:content, :image,).merge(user_id: current_user.id)
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
+        redirect_to("/comments")
       else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        redirect_to("/comments/new")
       end
-    end
   end
 
   # PATCH/PUT /comments/1
