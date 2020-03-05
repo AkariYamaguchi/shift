@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_02_28_033546) do
-=======
+
 ActiveRecord::Schema.define(version: 2020_02_24_053845) do
->>>>>>> 0491c38150b54b1884f368e4f35506506a9278f5
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,11 +37,18 @@ ActiveRecord::Schema.define(version: 2020_02_24_053845) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+
+  create_table "shift_applications", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+  
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+
   end
 
   create_table "shift_users", force: :cascade do |t|

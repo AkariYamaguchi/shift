@@ -5,11 +5,12 @@
       <%= month_calendar events: @shift_users do |date, shift_users| %>
         <%= date.strftime("%-d")%>
         <% shift_users.each do |shift_user| %>
-          <div>
+          <div class="<%= shift_user.status %>">
             <%= "#{shift_user.user.name} (#{shift_user.display_work_type})" %>
           </div>
-          <% if !current_user.admin_flag %>
-            btnテスト
+          <% if current_user.admin_flag && shift_user.applying? %>
+            <%= link_to '承認', shift_user_path(shift_user, { status: 'applied' }), method: :patch %>
+            <%= link_to '非承認', shift_user_path(shift_user, { status: 'not_apply' }), method: :patch %>
           <% end %>
         <% end %>
       <% end %>
