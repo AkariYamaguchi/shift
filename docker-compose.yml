@@ -6,11 +6,16 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle install && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      - RAILS_ENV=$RAILS_ENV
+      - DB_HOST=$DB_HOST
+      - DB_USER=$DB_USER
+      - DB_PASSWORD=$DB_PASSWORD
+    command: bash -c "rm -f tmp/pids/server.pid && bundle install && yarn install && bundle exec rake assets:clobber && bundle exec rake assets:precompile && rails s -p 80 -b '0.0.0.0'"
     volumes:
       - .:/myapp
     ports:
-      - "3000:3000"
+      - "80:80"
     depends_on:
       - db
     tty: true
