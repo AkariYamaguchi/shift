@@ -6,7 +6,7 @@ class ShiftUsersController < ApplicationController
   # GET /shift_users
   # GET /shift_users.json
   def index
-    @shift_users = ShiftUser.all
+    @shift_users = ShiftUser.where.not(work_type: 'holiday')
   end
 
   # GET /shift_users/1
@@ -33,7 +33,7 @@ class ShiftUsersController < ApplicationController
     shift_users_params.each do |shift_user_param|
       shift_user = current_user.shift_users.find_or_initialize_by(shift_id: shift_user_param[:shift_id])
       shift_user.work_type = shift_user_param[:work_type]
-      shift_user.apply_status = 'applying'
+      shift_user.status = 'applying'
       shift_user.save
     end
     redirect_to shift_users_path
@@ -42,15 +42,10 @@ class ShiftUsersController < ApplicationController
   # PATCH/PUT /shift_users/1
   # PATCH/PUT /shift_users/1.json
   def update
-    respond_to do |format|
-      if @shift_user.update(shift_user_params)
-        format.html { redirect_to @shift_user, notice: 'Shift user was successfully updated.' }
-        format.json { render :show, status: :ok, location: @shift_user }
-      else
-        format.html { render :edit }
-        format.json { render json: @shift_user.errors, status: :unprocessable_entity }
-      end
-    end
+    shift_user = ShiftUser.find(params[:id])
+    shift_user.status = params[:status]
+    shift_user.save!
+    redirect_to root_path
   end
 
   # DELETE /shift_users/1
