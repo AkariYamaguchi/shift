@@ -15,12 +15,8 @@
       <tr>
         <td><%= comment.user.name %></td>
         <td><%= comment.content %></td>
-        <td>
-          <% if @like_comment_ids.include?(comment.id) %>
-            <%= link_to '♥', comment_likes_path(comment), method: :delete %>
-          <% else %>
-            <%= link_to '♡', likes_comment_path(comment), method: :post %>
-          <% end %>
+        <td id="comment-like-<%= comment.id %>">
+          <%= render partial: 'comments/like', locals: { like_comment_ids: @like_comment_ids, comment: comment } %>
         </td>
         <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>

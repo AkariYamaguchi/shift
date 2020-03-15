@@ -57,6 +57,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def likes
+    @comment = Comment.find(params[:id])
+    Like.find_by(comment_id: params[:id], user_id: current_user.id)&.destroy!
+    @like_comment_ids = current_user.likes.where(comment: @comment).pluck(:comment_id)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
