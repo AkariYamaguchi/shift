@@ -15,7 +15,13 @@
       <tr>
         <td><%= comment.user.name %></td>
         <td><%= comment.content %></td>
-        <td><%= link_to 'good!', comment_likes_path(comment), method: :post%></td>
+        <td>
+          <% if @like_comment_ids.include?(comment.id) %>
+            <%= link_to '♥', comment_likes_path(comment), method: :delete %>
+          <% else %>
+            <%= link_to '♡', likes_comment_path(comment), method: :post %>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
         <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

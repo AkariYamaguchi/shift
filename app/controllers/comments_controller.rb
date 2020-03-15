@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     @comments = Comment.all.order(created_at: :desc)
+    @like_comment_ids = current_user.likes.where(comment: @comments).pluck(:comment_id)
   end
 
   # GET /comments/1
